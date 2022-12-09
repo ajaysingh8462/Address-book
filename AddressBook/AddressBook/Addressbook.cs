@@ -8,10 +8,10 @@ namespace AddressBook
 {
     internal class Addressbook
     {
-        List<Contact> data=new List<Contact>();
+        List<Contact> data = new List<Contact>();
         public void CreatContact()
         {
-            Contact contact= new Contact(); 
+            Contact contact = new Contact();
             Console.WriteLine("Enter Firstname");
             contact.Firstname = Console.ReadLine();
             Console.WriteLine("Enter Lastname");
@@ -23,15 +23,16 @@ namespace AddressBook
             Console.WriteLine("Enter State");
             contact.State = Console.ReadLine();
             Console.WriteLine("Enter Zip");
-            contact.Zip =Convert.ToInt32(Console.ReadLine());
+            contact.Zip = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter Phonenumber");
             contact.Phonenumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter Email");
             contact.Email = (Console.ReadLine());
-            data.Add(contact);  
+            data.Add(contact);
         }
         public void DisplayContact()
         {
+
             foreach (Contact record in data)
             {
                 Console.WriteLine("Firstname - " + record.Firstname);
@@ -43,7 +44,7 @@ namespace AddressBook
                 Console.WriteLine("Phonenumber - " + record.Phonenumber);
                 Console.WriteLine("Emai - " + record.Email);
             }
-                        
+
         }
         public void EditContact()
         {
@@ -57,7 +58,7 @@ namespace AddressBook
                     {
                         Console.WriteLine("Enter the option to Edit the Contact: ");
                         Console.WriteLine("1 to Change First name \n2 to Change Last name \n3 to Change Address  \n4 to Change City  \n5 to Change State  \n6 to Change Zip  \n7 to Change Phonenumber  \n8 to Change Email \n9 Exit");
-                        
+
                         int Check = Convert.ToInt32(Console.ReadLine());
                         switch (Check)
                         {
@@ -107,6 +108,23 @@ namespace AddressBook
 
             }
 
+        }
+        public  void RemoveContact()
+        {
+            Console.WriteLine("Enter the Firstname of the person you would like to remove.");
+            string Remove = Console.ReadLine();
+            foreach (var record in data.ToList())
+            {
+                if (record.Firstname.ToUpper() == Remove.ToUpper())
+                {
+                    data.Remove(record);
+                    Console.WriteLine("Contact is deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Contact is not present");
+                }
+            }
         }
     }
 }
