@@ -13,7 +13,7 @@ namespace AddressBook
             Addressbook addressbook = new Addressbook();
             while (true)
             {
-                Console.WriteLine("1 Creat contact \n2 Display Contact");
+                Console.WriteLine("1 Creat contact \n2 Display Contact \n3 Edit Contact");
                 int option=Convert.ToInt32(Console.ReadLine()); 
                 switch(option) 
                 {
@@ -22,6 +22,12 @@ namespace AddressBook
                         break;
                     case 2:
                         addressbook.DisplayContact();
+                        break;
+                        case 3:
+                        addressbook.EditContact();
+                        break;
+                    default:
+                        Console.WriteLine("Enter Valid option");    
                         break;
                 }
                 
