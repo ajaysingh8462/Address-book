@@ -109,13 +109,29 @@ namespace AddressBook
             }
 
         }
+        public void ContactList()
+        {
+            if (data.Count == 0)
+            {
+                Console.WriteLine("Your address book is empty.");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Here are the current people in your address book:\n");
+            foreach (var record in data)
+            {
+                DisplayContact();
+            }
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+        }
         public  void RemoveContact()
         {
             Console.WriteLine("Enter the Firstname of the person you would like to remove.");
             string Remove = Console.ReadLine();
             foreach (var record in data.ToList())
             {
-                if (record.Firstname.ToUpper() == Remove.ToUpper())
+                if (record.Firstname == Remove)
                 {
                     data.Remove(record);
                     Console.WriteLine("Contact is deleted");

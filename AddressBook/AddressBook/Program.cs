@@ -13,7 +13,7 @@ namespace AddressBook
             Addressbook addressbook = new Addressbook();
             while (true)
             {
-                Console.WriteLine("1 Creat contact \n2 Display Contact \n3 Edit Contact \n4 Delete Contact");
+                Console.WriteLine("1 Creat contact \n2 Display Contact \n3 Edit Contact \n4  Contact List \n5 Delete Contact");
                 int option=Convert.ToInt32(Console.ReadLine()); 
                 switch(option) 
                 {
@@ -27,6 +27,9 @@ namespace AddressBook
                         addressbook.EditContact();
                         break;
                     case 4:
+                        addressbook.ContactList();
+                        break;
+                    case 5:
                         addressbook.RemoveContact();
                         break;
                     default:
